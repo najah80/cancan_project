@@ -18,8 +18,6 @@ from itertools import chain
 #read result of two weeks aggregation 
 df = spark.read.parquet("/user/ngwh3132/WORK/cancan_project/3G_2W/new_df_3G_2weeks.parquet")
 
-## Feature Engineering
-
 # Create flags for columns containing NaN values and then, replace all NaN with 'O'
 df = df.withColumn('rg_missing', (F.col('rg').isNull()).cast('int')) \
        .withColumn('ie_avg_missing', (F.col('ie_avg').isNull()).cast('int')) \
